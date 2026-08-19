@@ -2,7 +2,7 @@ USE ROLE accountadmin;
 
 GRANT DATABASE ROLE snowflake.pypi_repository_user TO ROLE PUBLIC;
 
---
+/*--
 database, schema and warehouse creation
 --*/
 
