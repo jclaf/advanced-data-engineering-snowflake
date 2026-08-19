@@ -1,5 +1,6 @@
 USE ROLE accountadmin;
 
+GRANT DATABASE ROLE SNOWFLAKE.PYPI_REPOSITORY_USER TO ROLE accountadmin;
 
 /*--
 database, schema and warehouse creation
