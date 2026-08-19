@@ -2,6 +2,21 @@ USE ROLE accountadmin;
 
 GRANT DATABASE ROLE snowflake.pypi_repository_user TO ROLE PUBLIC;
 
+CREATE OR REPLACE FUNCTION sklearn_udf()
+RETURNS STRING
+LANGUAGE PYTHON
+RUNTIME_VERSION = 3.11
+ARTIFACT_REPOSITORY = snowflake.snowpark.pypi_shared_repository
+PACKAGES = ('scikit-learn')
+HANDLER = 'udf'
+AS
+$$
+import sklearn
+
+def udf():
+  return sklearn.__version__
+$$;
+
 /*--
 database, schema and warehouse creation
 --*/
